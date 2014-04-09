@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -53,7 +52,8 @@ function adapter(uri, opts){
     ? redis(socket, { detect_buffers: true })
     : redis(port, host, {detect_buffers: true});
 
-
+  sub.setMaxListeners(0);
+  
   // this server's key
   var uid = uid2(6);
   var key = prefix + '#' + uid;
